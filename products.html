@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Catalog - Organic Farm Products</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        #search {
+            margin-bottom: 20px;
+        }
+        .product {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Organic Farm Products</h1>
+    <input type="text" id="search" placeholder="Search for products..." oninput="filterProducts()">
+    <div id="products">
+        <div class="product">Organic Apples - $3.00</div>
+        <div class="product">Organic Bananas - $2.50</div>
+        <div class="product">Organic Carrots - $1.50</div>
+        <div class="product">Organic Eggs - $4.00</div>
+        <div class="product">Organic Milk - $5.00</div>
+        <div class="product">Organic Potatoes - $2.00</div>
+    </div>
+    <script>
+        function filterProducts() {
+            const searchInput = document.getElementById('search').value.toLowerCase();
+            const products = document.querySelectorAll('.product');
+            products.forEach(product => {
+                const text = product.textContent.toLowerCase();
+                product.style.display = text.includes(searchInput) ? 'block' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>
